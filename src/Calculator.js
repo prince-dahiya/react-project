@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Display from './Display';
 import Button from './Button';
-import './App.css'; // Optional: Import CSS for styling
+import './App.css'; 
 
 const Calculator = () => {
   const [input, setInput] = useState(''); // To hold the current input
   const [result, setResult] = useState(''); // To hold the result of the calculation
-  const [showAdvanced, setShowAdvanced] = useState(false); // State to control advanced buttons visibility
+  const [showAdvanced, setShowAdvanced] = useState(false); 
 
   const handleButtonClick = (value) => {
     if (value === '=') {
@@ -19,7 +19,7 @@ const Calculator = () => {
       }
       setInput(''); // Clear input after calculation
     } else if (value === 'C') {
-      // Clear the input and result when 'C' is pressed
+      
       setInput('');
       setResult('');
     } else if (value === 'Del') {
@@ -38,7 +38,7 @@ const Calculator = () => {
       // Handle exponentiation
       setInput((prev) => prev + '**'); // Use '**' for exponentiation in eval
     } else if (value === 'cos') {
-      // Calculate cosine
+      
       try {
         const evalResult = Math.cos(eval(input));
         setResult(evalResult);
@@ -70,10 +70,10 @@ const Calculator = () => {
       setInput(randomNum.toString());
       setResult(randomNum);
     } else if (value === 'Advanced') {
-      // Toggle the visibility of advanced buttons
+      
       setShowAdvanced((prev) => !prev);
     } else {
-      // Append the clicked button value to the input
+      
       setInput((prev) => prev + value);
     }
   };
@@ -93,20 +93,20 @@ const Calculator = () => {
         ))}
         <Button value="0" onClick={handleButtonClick} />
         <Button value="C" onClick={handleButtonClick} />
-        <Button value="Del" onClick={handleButtonClick} /> {/* Delete button */}
+        <Button value="Del" onClick={handleButtonClick} /> 
         <Button value="=" onClick={handleButtonClick} />
         <Button value="+" onClick={handleButtonClick} />
-        <Button value="√" onClick={handleButtonClick} /> {/* Square root button */}
-        <Button value="^" onClick={handleButtonClick} /> {/* Exponentiation button */}
-        <Button value="Advanced" onClick={handleButtonClick} /> {/* Advanced button */}
+        <Button value="√" onClick={handleButtonClick} /> 
+        <Button value="^" onClick={handleButtonClick} /> 
+        <Button value="Advanced" onClick={handleButtonClick} /> 
         
         {/* Conditionally render advanced buttons */}
         {showAdvanced && (
           <>
-            <Button value="Rand" onClick={handleButtonClick} /> {/* Random number button */}
-            <Button value="cos" onClick={handleButtonClick} /> {/* Cosine button */}
-            <Button value="sin" onClick={ handleButtonClick} /> {/* Sine button */}
-            <Button value="tan" onClick={handleButtonClick} /> {/* Tangent button */}
+            <Button value="Rand" onClick={handleButtonClick} /> 
+            <Button value="cos" onClick={handleButtonClick} />
+            <Button value="sin" onClick={ handleButtonClick} /> 
+            <Button value="tan" onClick={handleButtonClick} /> 
           </>
         )}
       </div>
