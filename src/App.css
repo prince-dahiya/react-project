@@ -1,38 +1,81 @@
+html, body {
+  height: 100%; /* Ensure the body takes up the full height of the viewport */
+  margin: 0; /* Remove default margin */
+}
+
+body {
+  background-image: url('https://storage.googleapis.com/a1aa/image/ea7079e7-fae7-491b-93ba-f5d53972aa13.jpeg');
+  background-size: cover; /* Adjusts the size of the background image */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+}
+
 .App {
   text-align: center;
+  margin-top: 50px; /* You can adjust this margin as needed */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#calculator {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow for 3D effect */
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  width: 400px; /* Set a fixed width for the calculator */
+  height: 500px; /* Set a fixed height for the calculator */
+  max-width: 90%; /* Ensure it doesn't exceed 90% of the viewport width */
+  transform: translateY(10px); /* Slightly lift the calculator */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+  overflow: hidden; /* Prevent overflow when advanced buttons are shown */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#calculator:hover {
+  transform: translateY(5px); /* Lift the calculator on hover */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.display {
+  margin-bottom: 20px;
+  font-size: 2em;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+}
+
+.input {
+  color: #333;
+}
+
+.result {
+  color: #007bff;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  max-height: 350px; /* Set a max height for the button container */
+  overflow-y: auto; /* Allow scrolling if buttons exceed max height */
+}
+
+.button {
+  padding: 20px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px; /* More rounded corners for a softer look */
+  background-color: #007bff;
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s; /* Added duration for transition */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for buttons */
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Lift button on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button:active {
+  transform: translateY(1px); /* Slightly lower button when clicked */
 }
